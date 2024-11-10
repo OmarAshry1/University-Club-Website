@@ -1,0 +1,43 @@
+steps to make the project work on your pc
+1.first make sure that php and xammp  are working correctly 
+
+2.go to php my admin dashboard and create a new database and name it "club_managment" please make sure that you wrote the name as mentioned because working with sql is case sensitive 
+3. make a new table inside club_managment database and name it users go to sql in the header and write this schema CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('student', 'club_member', 'club_leader', 'administrator') NOT NULL DEFAULT 'student',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+4. make a new table called clubs and go to sql from the header line and paste this schema CREATE TABLE clubs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    creation_date DATE NOT NULL,
+    club_leader_id INT NOT NULL,
+    announcements TEXT,
+    events TEXT,
+    posts TEXT,
+    members TEXT,
+    FOREIGN KEY (club_leader_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+5. make a new table for rewards: CREATE TABLE rewards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    reward TEXT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+6. make a new table for posts: CREATE TABLE posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    user_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+7. make sure that file is located in htdocs in xampp and go to your browser and write this url
+8. http://localhost/swe/admin/home.php#
