@@ -89,10 +89,5 @@ CREATE TABLE posts (
 - **Club Leader**: Manage club content and members
 - **Administrator**: Full system access and management
 
-## Contributing
 
-Feel free to fork this repository and submit pull requests for any improvements.
 
-## License
-
-This project is open source and available under the
