@@ -89,5 +89,6 @@ CREATE TABLE posts (
 - **Club Leader**: Manage club content and members
 - **Administrator**: Full system access and management
 
-
+## Report
+[View Report](SocietySpot-Club ManagementSystem/SocietySpot-Club-Management-System.pdf)
 
